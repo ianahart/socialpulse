@@ -91,4 +91,26 @@ module.exports = {
       res.status(500).json({ message: err.message });
     }
   },
+
+  async deleteReaction(req, res) {
+    try {
+      const { thoughtId, reactionId } = req.params;
+
+      const thought = await Thought.findByIdAndUpdate(
+        thoughtId,
+        { $pull: { reactions: { _id: reactionId } } },
+        { new: true }
+      );
+
+      if (!thought) {
+        return res
+          .status(404)
+          .json({ message: `A thought Id (${thoughtId}) or reaction Id ${reactionId} do not exist` });
+      }
+
+      res.status(200).json({ message: 'success', data: thought });
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  },
 };
