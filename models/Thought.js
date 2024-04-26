@@ -28,7 +28,7 @@ const reactionSchema = new Schema({
 const thoughtSchema = new Schema(
   {
     thoughtText: {
-      Type: String,
+      type: String,
       required: [true, 'A thought text is required'],
       maxlength: 280,
     },
