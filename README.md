@@ -79,7 +79,7 @@ SocialPulse is a REST API for a fictional social network. This web application o
 ## Visuals
 
 <div>
-  <video src="" width="650" controls type="video/mp4" />
+  <video src="https://github.com/ianahart/socialpulse/assets/29121238/9a24f019-b94e-4b89-b538-829d314a229d" width="650" controls type="video/mp4" />
 </div>
 
 ## Tests
