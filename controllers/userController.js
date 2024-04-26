@@ -34,4 +34,19 @@ module.exports = {
       res.status(500).json({ message: err.message });
     }
   },
+
+  async updateUser(req, res) {
+    try {
+      const userId = req.params.userId;
+      const user = await User.findOneAndUpdate({ _id: userId }, { $set: req.body }, { runValidators: true, new: true });
+
+      if (!user) {
+        return res.status(404).json({ message: `User with the id ${userId} was not found` });
+      }
+
+      res.status(200).json({ message: 'success', data: user });
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  },
 };
