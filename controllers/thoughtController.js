@@ -77,4 +77,18 @@ module.exports = {
       res.status(500).json({ message: err.message });
     }
   },
+
+  async createReaction(req, res) {
+    try {
+      const thoughtId = req.params.thoughtId;
+
+      const thought = await Thought.findByIdAndUpdate(thoughtId, { $addToSet: { reactions: req.body } }, { new: true })
+        .populate({ path: 'reactions', select: '-__v' })
+        .select('-__v');
+
+      res.status(201).json({ message: 'success', data: thought });
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  },
 };
