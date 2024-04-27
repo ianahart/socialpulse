@@ -45,6 +45,7 @@ SocialPulse is a REST API for a fictional social network. This web application o
 - Make sure MongoDB is running, commands will be different depending on your OS.
 - To install dependencies, make sure you're in the root of the project and run `npm install`.
 - In a terminal window run the command `npm run seed` to seed the database with dummy data.
+- While in the terminal window in the root of directory run `npm start`
 
 ## Usage
 
